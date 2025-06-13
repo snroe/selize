@@ -24,7 +24,7 @@
     "snet": "lib/cli.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && pnpm gulp ",
     "clean": "rimraf ./lib ./node_modules/.tmp",
     "eslint": "eslint src/**/*.ts"
   },
@@ -40,6 +40,8 @@
     "deepmerge": "^4.3.1",
     "fs-extra": "^11.3.0",
     "glob": "^11.0.1",
+    "i18next": "^25.2.1",
+    "i18next-fs-backend": "^2.6.0",
     "inquirer-toggle": "^1.0.1",
     "ora": "^8.2.0",
     "rimraf": "^6.0.1",
@@ -48,6 +50,8 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/fs-extra": "^11.0.4",
+    "@types/gulp": "^4.0.17",
+    "gulp": "^5.0.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.8.2"
