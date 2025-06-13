@@ -6,6 +6,8 @@ import { exec } from "child_process";
 import { GIT_URL } from "./env.js";
 import { snetInput, snetConfirm, snetSelect } from "./cli-ui.js";
 
+import { setPackageManager } from './modules/index.js';
+
 const init = async () => {
   try {
     const name = await snetInput({ message: "Input project name: ", required: true });
@@ -67,15 +69,6 @@ export const snetCreate = async (): Promise<void> => {
 
     const spinner = ora('Cloning repo...').start();
 
-    // await git.clone(GIT_URL, name, (error: Error) => {
-    //   if (error) {
-    //     console.log(error.message);
-    //     spinner.fail('Clone failed');
-    //     throw new Error("Clone failed");
-    //   }
-    //   spinner.succeed('Cloning complete!');
-    // });
-
     await simpleGit().clone(GIT_URL, name);
 
     spinner.succeed('Cloning complete!');
@@ -88,9 +81,9 @@ export const snetCreate = async (): Promise<void> => {
         installSpinner.fail('Install failed');
         return;
       }
+      setPackageManager(packageManager)
       installSpinner.succeed('Dependencies installed!');
     });
-
   } catch (error) {
     ora().fail("error");
     throw error;
