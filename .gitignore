@@ -49,3 +49,7 @@ node_modules/
 
 # Build output
 lib/
+
+# idea directory
+.idea/
+.vscode/
