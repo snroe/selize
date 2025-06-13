@@ -11,7 +11,7 @@ import { DEBUG_PORT, RUN_HOST, RUN_PORT } from './env.js';
 
 const program = new Command();
 
-const version = '0.0.1';
+const version = '0.1.4';
 
 program
   .name('snet-cli')
@@ -49,8 +49,8 @@ program.command('run')
   // .arguments('')
   .option('-p, --port <number>', i18n('cli_run_port'), RUN_PORT)
   .option('-e, --env <env>', i18n('cli_run_env'), 'dev')
-  .action((value) => {
-    snetRun();
+  .action((value: { env: string, port: string }) => {
+    snetRun(value);
   });
 
 program.parse(process.argv);
