@@ -1,6 +1,6 @@
 {
   "name": "snet",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Snroe",
   "license": "MIT",
   "description": "",
@@ -26,7 +26,8 @@
   "scripts": {
     "build": "tsc && pnpm gulp ",
     "clean": "rimraf ./lib ./node_modules/.tmp",
-    "eslint": "eslint src/**/*.ts"
+    "eslint": "eslint src/**/*.ts",
+    "publish": "pnpm clean && pnpm build && npm publish"
   },
   "packageManager": "pnpm@10.7.0",
   "engines": {

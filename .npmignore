@@ -10,3 +10,12 @@
 config.gypi
 CVS
 npm-debug.log
+
+.idea/
+.vscode/
+docs/
+local/
+node_modules/
+src/
+gulpfile.js
+pnpm-lock.yaml
