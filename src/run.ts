@@ -8,7 +8,7 @@ import { getPackageManager } from './modules/index.js';
 export const snetRun = (value: { env: string; port: string; }): void => {
   const packageManager = getPackageManager();
 
-  exec(`${packageManager} run dev --${value.env} --port ${value.port}`, (error, stdout, stderr) => {
+  exec(`ts-node ./src/app.server.js --${value.env} --port ${value.port}`, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
