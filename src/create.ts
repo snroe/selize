@@ -4,7 +4,7 @@ import ora from 'ora';
 import { exec } from "child_process";
 
 import { GIT_URL } from "./env.js";
-import { snetInput, snetConfirm, snetSelect } from "./cli-ui.js";
+import { snetInput, snetConfirm, snetSelect } from "./modules/index.js";
 
 import { setPackageManager } from './modules/index.js';
 

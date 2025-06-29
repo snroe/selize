@@ -3,7 +3,7 @@ import fse from 'fs-extra/esm';
 import path from 'path';
 import ora from 'ora';
 
-import { snetConfirm } from './cli-ui.js';
+import { snetConfirm } from './modules/index.js';
 import { CLEAN_DIRS } from './env.js'
 
 const rootDir = process.cwd();

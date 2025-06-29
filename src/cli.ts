@@ -21,8 +21,10 @@ program
 program.command('build')
   .description(i18n('cli_build'))
   .option('-e, --env <env>', 'environment</env>', 'dev')
-  .action((value) => {
-    snetBuild();
+  .option('-o, --output <output>', 'output</output>', 'dist')
+  .option('--lib', 'build lib')
+  .action((value: { env: string, output: string, lib: boolean }) => {
+    snetBuild(value);
   });
 
 program.command('clean')
