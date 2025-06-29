@@ -24,7 +24,7 @@ program.command('build')
   .option('-o, --output <output>', 'output</output>', 'dist')
   .option('--lib', 'build lib')
   .action((value: { env: string, output: string, lib: boolean }) => {
-    snetBuild(value);
+    snetBuild();
   });
 
 program.command('clean')
