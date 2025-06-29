@@ -5,7 +5,7 @@
 ## 安装
 
 ```sh
-pnpm add snet -g
+pnpm add snet-cli -g
 ```
 
 ## 使用

@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-pnpm add snet -g
+pnpm add snet-cli -g
 ```
 
 ## Usage
