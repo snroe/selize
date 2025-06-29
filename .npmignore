@@ -13,9 +13,11 @@ npm-debug.log
 
 .idea/
 .vscode/
+.github/
 docs/
-local/
+locales/
 node_modules/
 src/
+.npmrc
 gulpfile.js
 pnpm-lock.yaml
