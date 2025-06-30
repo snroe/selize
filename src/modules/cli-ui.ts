@@ -10,9 +10,9 @@ import { input, select, confirm, password, expand, editor, number, rawlist } fro
  * @returns 返回用户输入的结果
  * 
  * @example
- * const result = snetInput({message:'请输入内容',required:true})
+ * const result = selizeInput({message:'请输入内容',required:true})
  */
-export const snetInput = (config: { message: string, required: boolean }): Promise<any> => {
+export const selizeInput = (config: { message: string, required: boolean }): Promise<any> => {
   const { message, required } = config;
 
   if (typeof message !== 'string' || message.trim() === '') {
@@ -42,9 +42,9 @@ export const snetInput = (config: { message: string, required: boolean }): Promi
  * 
  * @example
  * // 基本用法
- * const result = await snetSelect({message: '请选择选项',choices:  [{ name: '选项1', value: '1' }, { name: '选项2', value: '2' }]})
+ * const result = await selizeSelect({message: '请选择选项',choices:  [{ name: '选项1', value: '1' }, { name: '选项2', value: '2' }]})
  */
-export const snetSelect = async (config: { message: string, choices: { name: string, value: string }[] }): Promise<string> => {
+export const selizeSelect = async (config: { message: string, choices: { name: string, value: string }[] }): Promise<string> => {
   const { message, choices } = config;
 
   if (typeof message !== 'string' || message.trim() === '') {
@@ -70,9 +70,9 @@ export const snetSelect = async (config: { message: string, choices: { name: str
  * 
  * @example
  * // 基本用法
- * const result = await snetConfirm('是否确认操作？')
+ * const result = await selizeConfirm('是否确认操作？')
  */
-export const snetConfirm = async ({ message }: { message: string }): Promise<boolean> => {
+export const selizeConfirm = async ({ message }: { message: string }): Promise<boolean> => {
   try {
     const a = await confirm({
       message,
@@ -94,9 +94,9 @@ export const snetConfirm = async ({ message }: { message: string }): Promise<boo
  * 
  * @example
  * // 基本用法
- * const result = await snetToggle({message: '是否确认操作？'})
+ * const result = await selizeToggle({message: '是否确认操作？'})
  */
-// export const snetToggle = async ({ message }: { message: string }): Promise<Boolean> => {
+// export const selizeToggle = async ({ message }: { message: string }): Promise<Boolean> => {
 //   try {
 //     const a = await toggle({
 //       message: message,
@@ -123,9 +123,9 @@ export const snetConfirm = async ({ message }: { message: string }): Promise<boo
  * 
  * @example
  * // 基本用法
- * const result = await snetPassword('请输入密码')
+ * const result = await selizePassword('请输入密码')
  */
-export const snetPassword = async ({ message }: { message: string }): Promise<string> => {
+export const selizePassword = async ({ message }: { message: string }): Promise<string> => {
   try {
     const result = await password({
       message,
@@ -145,9 +145,9 @@ export const snetPassword = async ({ message }: { message: string }): Promise<st
  * 
  * @example
  * // 基本用法
- * const result = await snetExpand({})
+ * const result = await selizeExpand({})
  */
-// export const snetExpand = async (config: { message: string, choices: { key: string; name: string; }[] }): Promise<string> => {
+// export const selizeExpand = async (config: { message: string, choices: { key: string; name: string; }[] }): Promise<string> => {
 //   const { message, choices } = config;
 
 //   if (typeof message !== 'string' || message.trim() === '') {
@@ -173,9 +173,9 @@ export const snetPassword = async ({ message }: { message: string }): Promise<st
  * 
  * @example
  * // 基本用法
- * const result = await snetEditor('请输入文本内容', {})
+ * const result = await selizeEditor('请输入文本内容', {})
  */
-// export const snetEditor = async (config: { message: string }): Promise<Object> => {
+// export const selizeEditor = async (config: { message: string }): Promise<Object> => {
 //   const { message } = config;
 
 //   if (typeof message !== 'string' || message.trim() === '') {
@@ -198,9 +198,9 @@ export const snetPassword = async ({ message }: { message: string }): Promise<st
  * 
  * @example
  * // 基本用法
- * const result = await snetNumber('请输入年龄', { min: 0, max: 120 });
+ * const result = await selizeNumber('请输入年龄', { min: 0, max: 120 });
  */
-// export const snetNumber = async ({ message }: { message: string }): Promise<number | undefined> => {
+// export const selizeNumber = async ({ message }: { message: string }): Promise<number | undefined> => {
 //   try {
 //     const a = await number({
 //       message,
@@ -221,9 +221,9 @@ export const snetPassword = async ({ message }: { message: string }): Promise<st
  * 
  * @example
  * // 基本用法
- * const result = await snetRawlist('请选择选项', {})
+ * const result = await selizeRawlist('请选择选项', {})
  */
-// export const snetRawlist = async ({ message }: { message: string }): Promise<any> => {
+// export const selizeRawlist = async ({ message }: { message: string }): Promise<any> => {
 //   try {
 //     const a = await rawlist({
 //       message,

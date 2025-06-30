@@ -1,11 +1,11 @@
 import { Command } from 'commander';
 
 import { i18n } from './modules/index.js';
-import { snetBuild } from './build.js';
-import { snetClean } from './clean.js';
-import { snetCreate } from './create.js';
-import { snetDebug } from './debug.js';
-import { snetRun } from './run.js';
+import { selizeBuild } from './build.js';
+import { selizeClean } from './clean.js';
+import { selizeCreate } from './create.js';
+import { selizeDebug } from './debug.js';
+import { selizeRun } from './run.js';
 
 import { DEBUG_PORT, RUN_HOST, RUN_PORT } from './env.js';
 
@@ -14,7 +14,7 @@ const program = new Command();
 const version = '0.1.4';
 
 program
-  .name('snet-cli')
+  .name('selize-cli')
   .description(i18n('cli_description'))
   .version(version, '-v, --version', 'output the version number');
 
@@ -24,26 +24,26 @@ program.command('build')
   .option('-o, --output <output>', 'output</output>', 'dist')
   .option('--lib', 'build lib')
   .action((value: { env: string, output: string, lib: boolean }) => {
-    snetBuild();
+    selizeBuild();
   });
 
 program.command('clean')
   .description(i18n('cli_clean'))
   .action((value) => {
-    snetClean();
+    selizeClean();
   });
 
 program.command('create')
   .description(i18n('cli_create'))
   .action((value) => {
-    snetCreate();
+    selizeCreate();
   });
 
 program.command('debug')
   .description(i18n('cli_debug'))
   .option('-p, --port <number>', 'port number', DEBUG_PORT)
   .action((value) => {
-    snetDebug();
+    selizeDebug();
   });
 
 program.command('run')
@@ -52,7 +52,7 @@ program.command('run')
   .option('-p, --port <number>', i18n('cli_run_port'), RUN_PORT)
   .option('-e, --env <env>', i18n('cli_run_env'), 'dev')
   .action((value: { env: string, port: string }) => {
-    snetRun(value);
+    selizeRun(value);
   });
 
 program.parse(process.argv);

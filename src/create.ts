@@ -4,13 +4,13 @@ import ora from 'ora';
 import { exec } from "child_process";
 
 import { GIT_URL } from "./env.js";
-import { snetInput, snetConfirm, snetSelect } from "./modules/index.js";
+import { selizeInput, selizeConfirm, selizeSelect } from "./modules/index.js";
 
 import { setPackageManager } from './modules/index.js';
 
 const init = async () => {
   try {
-    const name = await snetInput({ message: "Input project name: ", required: true });
+    const name = await selizeInput({ message: "Input project name: ", required: true });
 
     if (!name) {
       throw new Error("Project name is required");
@@ -19,7 +19,7 @@ const init = async () => {
     const dir = `${process.cwd()}/${name}`;
 
     if (await fse.pathExists(dir)) {
-      const overwrite = await snetConfirm({ message: `Project is already exists. Overwrite?` });
+      const overwrite = await selizeConfirm({ message: `Project is already exists. Overwrite?` });
 
       if (overwrite === null) {
         throw new Error("Project already exists");
@@ -30,7 +30,7 @@ const init = async () => {
       }
     }
 
-    const packageManager = await snetSelect({
+    const packageManager = await selizeSelect({
       message: "Select packageManager: ",
       choices: [
         {
@@ -57,7 +57,7 @@ const init = async () => {
   }
 }
 
-export const snetCreate = async (): Promise<void> => {
+export const selizeCreate = async (): Promise<void> => {
   try {
     const result = await init();
 

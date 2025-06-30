@@ -6,6 +6,6 @@ import { ChildProcess } from 'child_process';
 
 const rootDir = process.cwd();
 
-export const snetBuild = async (): Promise<any> => {
+export const selizeBuild = async (): Promise<any> => {
 
 }

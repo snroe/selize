@@ -3,7 +3,7 @@ import fse from 'fs-extra/esm';
 import path from 'path';
 import ora from 'ora';
 
-import { snetConfirm } from './modules/index.js';
+import { selizeConfirm } from './modules/index.js';
 import { CLEAN_DIRS } from './env.js'
 
 const rootDir = process.cwd();
@@ -24,9 +24,9 @@ const cleanFiles = async () => {
   spinner.succeed('Cleaning complete!');
 }
 
-export const snetClean = async (): Promise<void> => {
+export const selizeClean = async (): Promise<void> => {
   try {
-    const clean = await snetConfirm({ message: 'This will remove more files. Are you sure?' })
+    const clean = await selizeConfirm({ message: 'This will remove more files. Are you sure?' })
     if (clean === null) {
       console.log('you canceled.');
       return;

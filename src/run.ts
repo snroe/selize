@@ -1,11 +1,10 @@
 import fs from 'fs-extra';
 import { join } from 'path';
 import { exec } from 'child_process';
-// import { snetRun } from '@snet/core';
 
 import { getPackageManager } from './modules/index.js';
 
-export const snetRun = (value: { env: string; port: string; }): void => {
+export const selizeRun = (value: { env: string; port: string; }): void => {
   const packageManager = getPackageManager();
 
   exec(`ts-node ./src/app.server.js --${value.env} --port ${value.port}`, (error, stdout, stderr) => {

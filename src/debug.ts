@@ -1,3 +1,3 @@
-export const snetDebug = (): void => {
+export const selizeDebug = (): void => {
 
 }
