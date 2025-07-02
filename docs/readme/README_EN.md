@@ -5,17 +5,17 @@
 ## Installation
 
 ```sh
-pnpm add selize -g
+npm add selize -g
 ```
 
 ## Usage
 ```sh
 selize create
-
-✔ Input project name:  test
-✔ Select packageManager:  pnpm
 ```
 Then wait a moment, selize will download the template from the GitHub repository and generate the project.
+
+## Package Manager
+We recommend using [bun](https://bun.sh), but you can also use npm, pnpm, or yarn.
 
 ## Issues
 We accept questions in Chinese or English.

@@ -30,27 +30,27 @@ const init = async () => {
       }
     }
 
-    const packageManager = await selizeSelect({
-      message: "Select packageManager: ",
-      choices: [
-        {
-          name: "npm",
-          value: "npm",
-        },
-        {
-          name: "pnpm",
-          value: "pnpm",
-        },
-        {
-          name: "yarn",
-          value: "yarn",
-        }
-      ]
-    });
+    // const packageManager = await selizeSelect({
+    //   message: "Select packageManager: ",
+    //   choices: [
+    //     {
+    //       name: "npm",
+    //       value: "npm",
+    //     },
+    //     {
+    //       name: "pnpm",
+    //       value: "pnpm",
+    //     },
+    //     {
+    //       name: "yarn",
+    //       value: "yarn",
+    //     }
+    //   ]
+    // });
 
     return {
       name,
-      packageManager,
+      // packageManager,
     };
   } catch (error) {
     throw error;
@@ -65,7 +65,7 @@ export const selizeCreate = async (): Promise<void> => {
       throw new Error("Initialization failed or canceled.");
     }
 
-    const { name, packageManager } = result;
+    const { name } = result;
 
     const spinner = ora('Cloning repo...').start();
 
@@ -73,17 +73,17 @@ export const selizeCreate = async (): Promise<void> => {
 
     spinner.succeed('Cloning complete!');
 
-    const installSpinner = ora('Installing dependencies...').start();
+    // const installSpinner = ora('Installing dependencies...').start();
 
-    exec(`cd ${name} && ${packageManager} install`, (error) => {
-      if (error) {
-        console.log(error.message);
-        installSpinner.fail('Install failed');
-        return;
-      }
-      setPackageManager(packageManager)
-      installSpinner.succeed('Dependencies installed!');
-    });
+    // exec(`cd ${name} && ${packageManager} install`, (error) => {
+    //   if (error) {
+    //     console.log(error.message);
+    //     installSpinner.fail('Install failed');
+    //     return;
+    //   }
+    //   setPackageManager(packageManager)
+    //   installSpinner.succeed('Dependencies installed!');
+    // });
   } catch (error) {
     ora().fail("error");
     throw error;

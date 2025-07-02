@@ -3,19 +3,18 @@
 [English](docs/readme/README_EN.md)
 
 ## 安装
-
 ```sh
-pnpm add selize -g
+npm add selize -g
 ```
 
 ## 使用
 ```sh
 selize create
-
-✔ Input project name:  test
-✔ Select packageManager:  pnpm
 ```
 然后等待片刻，selize 将从 github 仓库下载模板并生成项目。
+
+## 包管理器
+我们推荐使用 [bun](https://bun.sh)，当然，您同样可以使用 npm、pnpm 或 yarn 。
 
 ## 关于议题
 我们接受中文或英文提问。
