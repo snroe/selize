@@ -1,6 +1,6 @@
 {
   "name": "selize",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "author": "Snroe",
   "license": "MIT",
   "description": "",
@@ -28,7 +28,7 @@
     "clean": "rimraf ./lib ./node_modules/.tmp",
     "publish": "npm publish --access public"
   },
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=20.0.0"
   },

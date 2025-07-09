@@ -1,4 +1,7 @@
 import { Command } from 'commander';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import fs from 'fs-extra';
 
 import { i18n } from './modules/index.js';
 import { selizeBuild } from './build.js';
@@ -9,9 +12,15 @@ import { selizeRun } from './run.js';
 
 import { DEBUG_PORT, RUN_HOST, RUN_PORT } from './env.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const pkgPath = join(__dirname, '../package.json');
+const pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+
 const program = new Command();
 
-const version = '0.1.4';
+const version = pkgJson.version;
 
 program
   .name('selize-cli')
