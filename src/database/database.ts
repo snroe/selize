@@ -46,6 +46,11 @@ export class DataBase {
 
   constructor(options: DataBaseOptions) {
     const { db } = options;
+
+    if (!["mysql", "pg", "mongodb"].includes(db)) {
+      throw new Error(`Unsupported database type: ${db}`);
+    }
+
     this._config = {
       db,
       // connection: options.connection,
@@ -66,7 +71,7 @@ export class DataBase {
   /**
    * Connect to the database
    */
-  public connect() {
+  public async connect() {
     switch (this._db) {
       case 'mysql':
         this._client = knex({
