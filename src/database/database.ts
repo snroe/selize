@@ -12,6 +12,8 @@ interface DataBaseOptions {
     password?: string;
     database: string;
   }
+  pool?: { min: number, max: number },
+  acquireConnectionTimeout?: number
 }
 
 type DataBaseClient = Knex | Connection | null;
@@ -21,17 +23,20 @@ type DataBaseClient = Knex | Connection | null;
  * @example
  * ```ts
  * const db = new DataBase({
- *  db: "mongodb",
+ *  db: "pg",
  *  connection: {
  *     host: "localhost",
  *     user: "root",
  *     password: "password",
  *     port: 3306,
- *     database: "database"
+ *     database: "myapp_test"
  *  }
- * })
+ * });
  * 
  * await db.connect();
+ * 
+ * cosnt dbClient = db.getClient();
+ * dbClient('users').where('id').first();
  * ```
  */
 export class DataBase {
@@ -43,7 +48,16 @@ export class DataBase {
     const { db } = options;
     this._config = {
       db,
-      connection: options?.connection
+      // connection: options.connection,
+      connection: {
+        host: options.connection.host,
+        port: options.connection.port,
+        user: options.connection.user || '',
+        password: options.connection.password || '',
+        database: options.connection.database,
+      },
+      pool: options?.pool || { min: 2, max: 10 },
+      acquireConnectionTimeout: options.acquireConnectionTimeout || 10000,
     };
 
     this._db = db as 'mongodb' | 'mysql' | 'pg';
@@ -64,6 +78,11 @@ export class DataBase {
             password: this._config.connection.password,
             database: this._config.connection.database,
           },
+          pool: {
+            min: this._config.pool?.min,
+            max: this._config.pool?.max,
+          },
+          acquireConnectionTimeout: this._config.acquireConnectionTimeout,
         });
         console.log('Connected to MySQL');
         break;
@@ -78,6 +97,11 @@ export class DataBase {
             password: this._config.connection.password,
             database: this._config.connection.database,
           },
+          pool: {
+            min: this._config.pool?.min,
+            max: this._config.pool?.max,
+          },
+          acquireConnectionTimeout: this._config.acquireConnectionTimeout,
         });
         console.log('Connected to PostgreSQL');
         break;

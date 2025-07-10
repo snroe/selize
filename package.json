@@ -25,7 +25,7 @@
   "scripts": {
     "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.ts && tsc --emitDeclarationOnly --outDir lib",
     "check": "tsc --noEmit",
-    "test": "bun test ./__tests__/test.ts",
+    "test": "bun test",
     "clean": "rimraf lib node_modules/.tmp",
     "publish": "npm publish --access public"
   },
@@ -41,8 +41,10 @@
     "knex": "^3.1.0",
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.2",
+    "mysql": "^2.18.1",
     "mysql2": "^3.14.1",
     "pg": "^8.16.3",
+    "pg-native": "^3.5.2",
     "zod": "^4.0.2"
   },
   "devDependencies": {
