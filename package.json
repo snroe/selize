@@ -1,6 +1,6 @@
 {
   "name": "@selize/common",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Snroe",
   "license": "MIT",
   "description": "Easy to use code for, typescript, express, database, and more",
@@ -27,6 +27,7 @@
     "check": "tsc --noEmit",
     "test": "bun test",
     "clean": "rimraf lib node_modules/.tmp",
+    "release": "standard-version --commit-message",
     "publish": "npm publish --access public"
   },
   "engines": {
@@ -34,8 +35,7 @@
     "bun": ">=1.0.0"
   },
   "dependencies": {
-    "@selize/utils": "^0.1.15",
-    "@types/mongoose": "^5.11.97",
+    "@selize/utils": "latest",
     "fs-extra": "^11.3.0",
     "glob": "^11.0.3",
     "knex": "^3.1.0",
@@ -48,10 +48,11 @@
     "zod": "^4.0.2"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.18",
+    "@types/bun": "latest",
     "@types/fs-extra": "^11.0.4",
     "@types/knex": "^0.16.1",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0"
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
