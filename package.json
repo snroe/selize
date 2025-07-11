@@ -1,6 +1,6 @@
 {
   "name": "selize",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "author": "Snroe",
   "license": "MIT",
   "description": "",
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "tsc && pnpm gulp ",
     "clean": "rimraf ./lib ./node_modules/.tmp",
-    "release": "standard-version",
+    "release": "standard-version --commit-message \"chore(release): {{currentVersion}} [skip ci]\"",
     "publish": "npm publish --access public"
   },
   "packageManager": "pnpm@10.13.1",
