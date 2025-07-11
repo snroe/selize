@@ -44,6 +44,7 @@ jobs:
 
       - name: Push version commit and tag
         run: |
+          git remote set-url origin https://x-access-token:${{ secrets.RELEASE_TOKEN }}@github.com/${{ github.repository }}
           git push origin main --follow-tags
 
       - id: publish
