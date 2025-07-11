@@ -19,5 +19,6 @@ locales/
 node_modules/
 src/
 .npmrc
+CHANGELOG.md
 gulpfile.js
 pnpm-lock.yaml

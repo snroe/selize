@@ -1,6 +1,6 @@
 # Selize
 
-[English](docs/readme/README_EN.md)
+[English](docs/EN/README_EN.md)
 
 ## 安装
 ```sh
@@ -14,7 +14,7 @@ selize create
 然后等待片刻，selize 将从 github 仓库下载模板并生成项目。
 
 ## 包管理器
-我们推荐使用 [bun](https://bun.sh)，当然，您同样可以使用 npm、pnpm 或 yarn 。
+我们推荐使用 [pnpm](https://pnpm.io/)，当然，您同样可以使用 npm 或 yarn 。
 
 ## 关于议题
 我们接受中文或英文提问。

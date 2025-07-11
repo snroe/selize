@@ -34,6 +34,16 @@ jobs:
         run: |
           pnpm run build
 
+      - name: Bump version and create tag
+        run: |
+            pnpm run release
+        env:
+            CI: true
+
+      - name: Push version commit and tag
+        run: |
+          git push origin main --follow-tags
+
       - id: publish
         name: Publish to NPM
         uses: JS-DevTools/npm-publish@v3

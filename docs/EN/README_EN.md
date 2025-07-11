@@ -15,7 +15,7 @@ selize create
 Then wait a moment, selize will download the template from the GitHub repository and generate the project.
 
 ## Package Manager
-We recommend using [bun](https://bun.sh), but you can also use npm, pnpm, or yarn.
+We recommend using [pnpm](https://pnpm.io/), but you can also use npm, or yarn.
 
 ## Issues
 We accept questions in Chinese or English.
