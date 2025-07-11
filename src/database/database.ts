@@ -19,7 +19,13 @@ interface DataBaseOptions {
 type DataBaseClient = Knex | Connection | null;
 
 /**
- * Connect to a database(MySQL, PostgreSQL, MongoDB)
+ * 连接数据库
+ * @description
+ * 现已支持的数据库: MySQL, PostgreSQL, MongoDB
+ * 
+ * `DataBase` 结合了 Knex 和 Mongoose，更多详细的文档可参考：
+ * {@link https://knexjs.org/|Knex 官网}、{@link https://mongoosejs.com/|Mongoose 官网}
+ * 
  * @example
  * ```ts
  * const db = new DataBase({
@@ -35,8 +41,8 @@ type DataBaseClient = Knex | Connection | null;
  * 
  * await db.connect();
  * 
- * cosnt dbClient = db.getClient();
- * dbClient('users').where('id').first();
+ * const dbClient = db.getClient();
+ * dbClient('users').where('id', 1).first();
  * ```
  */
 export class DataBase {
