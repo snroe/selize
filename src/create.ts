@@ -1,12 +1,8 @@
 import fse from "fs-extra";
 import { simpleGit } from "simple-git";
 import ora from 'ora';
-import { exec } from "child_process";
-
 import { GIT_URL } from "./env.js";
-import { selizeInput, selizeConfirm, selizeSelect } from "./modules/index.js";
-
-import { setPackageManager } from './modules/index.js';
+import { selizeInput, selizeConfirm } from "./modules/index.js";
 
 const init = async () => {
   try {
@@ -29,28 +25,8 @@ const init = async () => {
         await fse.remove(dir);
       }
     }
-
-    // const packageManager = await selizeSelect({
-    //   message: "Select packageManager: ",
-    //   choices: [
-    //     {
-    //       name: "npm",
-    //       value: "npm",
-    //     },
-    //     {
-    //       name: "pnpm",
-    //       value: "pnpm",
-    //     },
-    //     {
-    //       name: "yarn",
-    //       value: "yarn",
-    //     }
-    //   ]
-    // });
-
     return {
       name,
-      // packageManager,
     };
   } catch (error) {
     throw error;
@@ -72,18 +48,6 @@ export const selizeCreate = async (): Promise<void> => {
     await simpleGit().clone(GIT_URL, name);
 
     spinner.succeed('Cloning complete!');
-
-    // const installSpinner = ora('Installing dependencies...').start();
-
-    // exec(`cd ${name} && ${packageManager} install`, (error) => {
-    //   if (error) {
-    //     console.log(error.message);
-    //     installSpinner.fail('Install failed');
-    //     return;
-    //   }
-    //   setPackageManager(packageManager)
-    //   installSpinner.succeed('Dependencies installed!');
-    // });
   } catch (error) {
     ora().fail("error");
     throw error;

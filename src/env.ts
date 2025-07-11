@@ -1,12 +1,14 @@
-export const DEBUG_PORT: string = Object.freeze("2344")
-export const DEBUG_HOST: string = Object.freeze('localhost')
+import { deepFreeze } from "@selize/utils"
 
-export const RUN_PORT: string = Object.freeze("2345")
-export const RUN_HOST: string = Object.freeze('localhost')
+export const DEBUG_PORT: string = deepFreeze("2344")
+export const DEBUG_HOST: string = deepFreeze('localhost')
 
-export const GIT_URL: string = Object.freeze("https://gitclone.com/github.com/snroe/selize-demo.git")
+export const RUN_PORT: string = deepFreeze("2345")
+export const RUN_HOST: string = deepFreeze('localhost')
 
-export const CLEAN_DIRS: readonly string[] = Object.freeze([
+export const GIT_URL: string = deepFreeze("https://gitclone.com/github.com/snroe/selize-demo.git")
+
+export const CLEAN_DIRS: readonly string[] = deepFreeze([
   'dist',
   'out',
   'node_modules',
