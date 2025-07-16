@@ -1,0 +1,62 @@
+{
+  "name": "@selize/utils",
+  "version": "1.1.0",
+  "author": "Snroe",
+  "license": "MIT",
+  "description": "This is a collection of utilities for selize",
+  "keywords": [
+    "Snroe",
+    "selize",
+    "utils",
+    "typescript",
+    "selize-utils",
+    "bun"
+  ],
+  "homepage": "https://utils.selize.snroe.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snroe/selize-utils.git"
+  },
+  "bugs": "https://github.com/snroe/selize-utils/issues",
+  "main": "./lib/index.js",
+  "type": "module",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "bun run -c=bunfig.toml build.ts && bun run build:type",
+    "build:type": "tsc --emitDeclarationOnly --outDir lib",
+    "check": "tsc --noEmit",
+    "clean": "rimraf lib node_modules/.tmp",
+    "test": "bun run check && bun test --dir __tests__",
+    "docs:html": "bun run -c=bunfig.toml docs.ts",
+    "docs:md": "typedoc --excludePrivate false --githubPages --gitRevision main --plugin typedoc-plugin-markdown --out docs src",
+    "publish": "npm publish --access public",
+    "prepare": "husky",
+    "commit": "commit"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.0.0"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.0",
+    "rimraf": "^6.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-angular": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt-cli": "^19.8.1",
+    "@types/bun": "^1.2.18",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.0.13",
+    "cheerio": "^1.1.0",
+    "husky": "^9.1.7",
+    "typedoc": "^0.28.7",
+    "typedoc-plugin-markdown": "^4.7.0",
+    "xmlbuilder2": "^3.1.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
