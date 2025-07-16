@@ -1,11 +1,8 @@
-name: Release on npm
+name: Publish Package to npmjs
 on:
   push:
-    branches:
-      - main
-    paths:
-      - "src/**"
-      - "package.json"
+    tags:
+      - 'v*'
 
 jobs:
   build_and_publish:
@@ -26,19 +23,10 @@ jobs:
       
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        
       - run: pnpm install
-      - run: pnpm build
-        
-      - name: Generate changelog
-        id: changelog
-        env:
-          CI: true
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        run: |
-          git config --local user.email "${{ secrets.ACTION_USERNAME }}"
-          git config --local user.name "${{ secrets.ACTION_EMAIL }}"
-          pnpm run release
+  
+      - name: Build
+        run: pnpm run build
 
       - name: Publish to NPM
         id: publish
@@ -52,26 +40,3 @@ jobs:
         if: ${{ steps.publish.outputs.type }}
         run: |
           echo "Published ${{ steps.publish.outputs.type }} version: ${{ steps.publish.outputs.version }}"
-
-      - name: Push version commit and tag
-        if: ${{ steps.changelog.outputs.type }}
-        env:
-          CI: true
-          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        run: |
-          git push origin main
-          git push origin tags --follow-tags
-
-      - name: Read CHANGELOG.md
-        id: readlog
-        run: test -f CHANGELOG.md || exit 1
-  
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          body_path: ${{ github.workspace }}/CHANGELOG.md
-          draft: false
-          prerelease: false
-          token: ${{ github.token }}
