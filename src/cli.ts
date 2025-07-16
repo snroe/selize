@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import { i18n } from './modules/index.js';
 import { selizeBuild } from './build.js';
 import { selizeClean } from './clean.js';
-import { selizeCreate } from './create.js';
+import { selizeCreate } from '../create.js';
 import { selizeDebug } from './debug.js';
 import { selizeRun } from './run.js';
 
