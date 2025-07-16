@@ -1,0 +1,68 @@
+{
+  "name": "@selize/core",
+  "version": "0.1.0",
+  "author": "Snroe",
+  "license": "MIT",
+  "description": "selize core",
+  "keywords": [
+    "selize",
+    "selize-core",
+    "node",
+    "bun",
+    "server",
+    "express"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snroe/selize-core.git"
+  },
+  "bugs": "https://github.com/snroe/selize-core/issues",
+  "type": "module",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "scripts": {
+    "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.ts && tsc --emitDeclarationOnly --outDir lib",
+    "check": "tsc --noEmit",
+    "test:e2e": "tsc --noEmit && cd __tests__ && cd e2e && bun run server.test.ts --watch",
+    "test:unit": "tsc --noEmit && cd __tests__ && cd unit && bun test unit.test.ts --watch",
+    "clean": "rimraf lib node_modules/.tmp",
+    "publish": "npm publish --access public",
+    "prepare": "husky",
+    "commit": "commit"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": "latest"
+  },
+  "dependencies": {
+    "@selize/utils": "latest",
+    "axios": "^1.10.0",
+    "body-parser": "^2.2.0",
+    "chokidar": "^4.0.3",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.3.0",
+    "inversify": "^7.6.1",
+    "pm2": "^6.0.8",
+    "reflect-metadata": "^0.2.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-angular": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt-cli": "^19.8.1",
+    "@types/body-parser": "^1.19.6",
+    "@types/bun": "^1.2.18",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/winston": "^2.4.4",
+    "husky": "^9.1.7",
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.8.3"
+  }
+}
