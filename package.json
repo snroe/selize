@@ -1,5 +1,5 @@
 {
-  "name": "selize",
+  "name": "@selize/cli",
   "version": "0.1.21",
   "author": "Snroe",
   "license": "MIT",
@@ -30,7 +30,6 @@
     "release": "standard-version --commit-message \"chore(release): {{currentVersion}} [skip ci]\"",
     "publish": "npm publish --access public"
   },
-  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=20.0.0",
     "bun": ">=1.0.0"
