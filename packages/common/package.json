@@ -1,0 +1,64 @@
+{
+  "name": "@selize/common",
+  "version": "0.0.5",
+  "author": "Snroe",
+  "license": "MIT",
+  "description": "Easy to use code for, typescript, express, database, and more",
+  "keywords": [
+    "selize",
+    "selize-common",
+    "utils",
+    "mongodb",
+    "node",
+    "bun",
+    "server",
+    "express"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snroe/selize-common.git"
+  },
+  "bugs": "https://github.com/snroe/selize-common/issues",
+  "main": "lib/index.js",
+  "type": "module",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.ts && tsc --emitDeclarationOnly --outDir lib",
+    "check": "tsc --noEmit",
+    "test": "bun test",
+    "clean": "rimraf lib node_modules/.tmp",
+    "release": "standard-version --commit-message",
+    "publish": "npm publish --access public"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.0.0"
+  },
+  "dependencies": {
+    "@selize/utils": "latest",
+    "fs-extra": "^11.3.0",
+    "glob": "^11.0.3",
+    "inversify": "^7.6.1",
+    "inversify-inject-decorators": "^3.1.0",
+    "knex": "^3.1.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.16.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.14.1",
+    "pg": "^8.16.3",
+    "pg-native": "^3.5.2",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inversify": "^2.0.33",
+    "@types/knex": "^0.16.1",
+    "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
